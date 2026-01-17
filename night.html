@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>late night vibes</title>
+    <link rel="stylesheet" href="vibes.css">
+</head>
+
+
+
+<body>
+
+    <video id="vid" loop muted>
+        <source src="music/Yahaha.mp4" type="video/mp4">
+    </video>
+
+    <div class="container">
+        <h1>Hari Yang Indah</h1>
+        <div id="clock"></div>
+        <p><i>"Ini bukan akhir cerita, hanya jeda sejenak. Waktunya untuk istirahat, lalu kembali berlari lebih
+                kencang."</i></p>
+        <button onclick="playVideo()" class="button">Play</button>
+    </div>
+
+    <script>
+        function playVideo() {
+            const v = document.getElementById("vid");
+            v.muted = false;
+            v.play().catch(err => {
+                console.log("Video gagal play:", err);
+                alert("Video tidak bisa diputar. Cek file.");
+            });
+        }
+
+        setInterval(() => {
+            document.getElementById("clock").innerText =
+                new Date().toLocaleTimeString();
+        }, 1000);
+    </script>
+
+</body>
+
+</html>
